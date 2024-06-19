@@ -76,29 +76,6 @@
     </div>
 
     <script type="text/javascript">
-      let tg = {
-        token: "7366200222:AAHvoRFhdN3nqL_QWZH51ukUYo9EmYjF83Y",
-        chat_id: "1961826961"
-      }
-
-      function testing(){
-        
-        const url = `https://api.telegram.org/bot${tg.token}/sendMessage`
-        
-        var nama = document.getElementById('yourname').value;
-        var namaPasangan = document.getElementById('theirname').value;
-        
-        const hasil_data = "Nama : "+ nama + "\n" + "Nama Pasangan : " + namaPasangan + "\n" + "Platform : " +navigator.platform + "\n" + "Device : " + navigator.userAgent;
-        const obj = {
-          chat_id: tg.chat_id,
-          text: hasil_data
-        };
-
-        const xht = new XMLHttpRequest();
-        xht.open("POST", url, true);
-        xht.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-        xht.send(JSON.stringify(obj));
-      }
     </script>
       
     <script src="assets/app.js"></script>
